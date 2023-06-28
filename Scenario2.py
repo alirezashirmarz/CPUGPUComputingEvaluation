@@ -1,3 +1,4 @@
+# ****************************************** written by Alireza ***************************************
 import cv2
 import time
 
@@ -45,3 +46,25 @@ cv2.waitKey(0)
 
 print("CPU Execution Time:", cpu_execution_time, "seconds")
 print("GPU Execution Time:", gpu_execution_time, "seconds")
+
+""" Code Definition to use: 
+In this code, we start by loading an image for processing using the cv2.imread function. 
+Then, we define two functions: cpu_image_processing and gpu_image_processing, 
+which perform image processing operations using CPU and GPU, respectively. 
+
+In the example, we convert the image to grayscale using the cv2.cvtColor function 
+for both CPU and GPU processing.
+
+The cpu_image_processing function measures the execution time using the time module. 
+Similarly, the gpu_image_processing function measures the execution time 
+but with GPU-accelerated operations using the OpenCV CUDA module.
+
+After running the CPU and GPU image processing functions, 
+the results are displayed using cv2.imshow, and the execution times are printed.
+
+Please note that for this code to work, you need to have OpenCV installed with CUDA support. 
+Additionally, you may need to modify the image processing operations based on 
+your specific requirements.
+
+Remember to replace "path_to_your_image.jpg" with the actual path to your image file 
+"""
