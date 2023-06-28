@@ -1,6 +1,5 @@
-# CPUGPUComputingEvaluation
-# CPU cores computing strength and GPU computing strength using Python:
-
+# CPU cores computing strength and GPU computing strength using Python
+Repository Name: CPUGPUComputingEvaluation
 ## (1) Objective:
 The objective of this project is to evaluate the CPU cores and GPU computing strengths in various scenarios using Python, considering different types of computational tasks.
 
