@@ -1,7 +1,12 @@
 import json
 import matplotlib.pyplot as plt
+import os
 
 def plot_bar_chart_from_json(json_filename):
+    if not os.path.isfile(json_filename):
+        print(f"File '{json_filename}' does not exist.")
+        return
+
     with open(json_filename, 'r') as json_file:
         data = json.load(json_file)
 
@@ -9,8 +14,8 @@ def plot_bar_chart_from_json(json_filename):
     execution_times = []
 
     for size, result in data.items():
-        sizes.append(result['size'])
-        execution_times.append(result['average_execution_time'])
+        sizes.append(int(result['size']))
+        execution_times.append(float(result['average_execution_time']))
 
     plt.bar(sizes, execution_times)
     plt.xlabel('Size')

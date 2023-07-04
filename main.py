@@ -1,6 +1,7 @@
 import json
 from utils.cpu_operations import cpu_operations
 import BarChartPlotter
+import matplotlib.pyplot as plt
 
 def main():
 
@@ -18,5 +19,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
