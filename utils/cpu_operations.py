@@ -1,4 +1,5 @@
 import json
+import matplotlib.pyplot as plt
 import numpy as np
 import time
 from .CPUMatrixOperations import matrix_multiplication
@@ -22,15 +23,10 @@ class cpu_operations:
             total_execution_time += cpu_execution_time
 
             average_execution_time = total_execution_time / num_executions
-        output = {
-        "matrix_size": matrix_size,
-        "average_execution_time": average_execution_time
-    }
+
+        return average_execution_time
         
-        json_filename = "avg_execution_times_oneMatrix.json"
-        self.save_to_json(output, json_filename)
-        print(f"avg_execution_times_oneMatrix saved to {json_filename}")
-    
+        
     
     def calculate_and_save_averaged_results(self):
 
