@@ -1,18 +1,15 @@
-from utils.CPUMatrixOperations import CPUMatrixOperations
+from utils.cpu_operations import cpu_operations
 
 def main():
-    # Create an instance of the CPUMatrixOperations class
-    cpu_operations = CPUMatrixOperations()
+
+    # Create an instance of the cpu_operations class
+    cpu_operat = cpu_operations()
+    matrix_size = 1000
+    num_executions = 10
 
     # Perform matrix multiplication on CPU
-    cpu_result, cpu_execution_time = cpu_operations.matrix_multiplication(1000)
-
-    # Compare the results (optional)
-    print("Result in CPU:")
-    print(cpu_result)
-
-    # Display the execution time
-    print("Execution time in CPU:", cpu_execution_time, "seconds")
+    average_execution_time = cpu_operat.calculate_average_execution_time(matrix_size,num_executions)
+    print("Average Execution Time:", average_execution_time, "seconds")
 
 if __name__ == '__main__':
     main()
