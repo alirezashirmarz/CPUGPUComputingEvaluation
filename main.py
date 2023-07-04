@@ -1,3 +1,4 @@
+import json
 from utils.cpu_operations import cpu_operations
 
 def main():
@@ -8,8 +9,12 @@ def main():
     num_executions = 10
 
     # Perform matrix multiplication on CPU
-    average_execution_time = cpu_operat.calculate_average_execution_time(matrix_size,num_executions)
-    print("Average Execution Time:", average_execution_time, "seconds")
+    cpu_operat.calculate_average_execution_time(matrix_size, num_executions)
+
+    cpu_operat.calculate_and_save_averaged_results()
+
 
 if __name__ == '__main__':
     main()
+
+
