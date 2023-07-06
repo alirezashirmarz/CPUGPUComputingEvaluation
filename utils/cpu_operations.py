@@ -44,7 +44,7 @@ class cpu_operations:
                 "average_execution_time": results[size],
             }
 
-        json_filename = "averaged_execution_times.json"
+        json_filename = "averaged_execution_cpu_times.json"
         self.save_to_json(averaged_results, json_filename)
         print(f"Averaged results saved to {json_filename}")
     

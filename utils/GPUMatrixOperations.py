@@ -1,11 +1,10 @@
 import numpy as np
+import cupy as cp
 import time
 
-class GPUMatrixOperations:
-    def __init__(self):
-        pass
+
 # GPU Matrix Multiplication
-    def matrix_multiplication(self, matrix_size=1000): 
+def matrix_multiplication(matrix_size=1000): 
         matrix_a = np.random.rand(matrix_size, matrix_size)
         matrix_b = np.random.rand(matrix_size, matrix_size)
         start_time = time.time()
@@ -19,3 +18,5 @@ class GPUMatrixOperations:
         end_time = time.time()
         execution_time = end_time - start_time
         return cpu_result, execution_time
+
+
