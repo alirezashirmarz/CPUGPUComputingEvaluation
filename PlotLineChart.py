@@ -13,6 +13,11 @@ def plot_line_chart_from_json(json_filename):
     sizes = []
     execution_times = []
 
+    if json_filename=='averaged_execution_cpu_times.json':
+        lineChart_name = "lineChart_matrix_cpu.png"    
+    else:
+       lineChart_name = "lineChart_matrix_gpu.png"    
+
     for size, result in data.items():
         sizes.append(int(result['size']))
         execution_times.append(float(result['average_execution_time']))
@@ -21,6 +26,6 @@ def plot_line_chart_from_json(json_filename):
     plt.xlabel('Size')
     plt.ylabel('Average Execution Time')
     plt.title('Averaged Execution Times - Line Plot')
-    plt.savefig('line_chart.png')
+    plt.savefig(lineChart_name)
     plt.show()
 
