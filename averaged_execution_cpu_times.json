@@ -1,1 +1,1 @@
-{"100": {"size": 100, "average_execution_time": 9.992122650146485e-05}, "500": {"size": 500, "average_execution_time": 0.0035765647888183595}, "1000": {"size": 1000, "average_execution_time": 0.039673018455505374}, "2000": {"size": 2000, "average_execution_time": 0.2676426410675049}}
+{"100": {"size": 100, "average_execution_time": 0.00019960403442382814}, "500": {"size": 500, "average_execution_time": 0.004191756248474121}, "1000": {"size": 1000, "average_execution_time": 0.03542013168334961}, "2000": {"size": 2000, "average_execution_time": 0.2695855855941772}}

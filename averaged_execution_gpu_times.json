@@ -1,0 +1,1 @@
+{"100": {"size": 100, "average_execution_time": 0.32334012985229493}, "500": {"size": 500, "average_execution_time": 0.005211186408996582}, "1000": {"size": 1000, "average_execution_time": 0.028200435638427734}, "2000": {"size": 2000, "average_execution_time": 0.10491702556610108}}
