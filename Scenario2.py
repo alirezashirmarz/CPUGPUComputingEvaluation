@@ -46,9 +46,22 @@ def cpu_image_processing(image):
     execution_time = end_time - start_time
     return gray_image, execution_time
 
+def cpu_image_processing_numpy(image):
+    start_time = time.time()
+
+    second = np.array([0.299, 0.587, 0.114])
+    gray_image = np.dot(image, second)
+
+
+    end_time = time.time()
+
+    # end_time = time.time()
+
+    execution_time = end_time - start_time
+    return gray_image, execution_time
 
 # GPU Image Processing
-def gpu_image_processing(image):
+def gpu_image_processing_cv2_cuda(image):
     start_time = time.time()
 
     # Perform image processing operations using GPU
@@ -63,7 +76,7 @@ def gpu_image_processing(image):
     return gray_image, execution_time
 
 
-def gpu_image_processing_2(image):
+def gpu_image_processing_cupy(image):
     # start_time = time.time()
 
     # gray_image = np.dot(image, [0.2989, 0.5870, 0.1140]).astype(np.uint8)
@@ -86,6 +99,7 @@ def gpu_image_processing_2(image):
     execution_time = end_time - start_time
     return gray_image, execution_time
 
+
 def cpu_test(image):
     test_result = []
 
@@ -95,11 +109,29 @@ def cpu_test(image):
 
     return test_result
 
-def gpu_test(image):
+def cpu_test_numpy(image):
     test_result = []
 
     for i in range(test_count):
-        result, execution_time = gpu_image_processing_2(image)
+        result, execution_time = cpu_image_processing_numpy(image)
+        test_result.append(execution_time)
+
+    return test_result
+
+def gpu_test_cupy(image):
+    test_result = []
+
+    for i in range(test_count):
+        result, execution_time = gpu_image_processing_cupy(image)
+        test_result.append(execution_time)
+
+    return test_result
+
+def gpu_test_cuda(image):
+    test_result = []
+
+    for i in range(test_count):
+        result, execution_time = gpu_image_processing_cv2_cuda(image)
         test_result.append(execution_time)
 
     return test_result
@@ -114,10 +146,12 @@ for image_path in image_paths:
   # Run CPU Image Processing
   # cpu_result, cpu_execution_time = cpu_image_processing(image)
   cpu_test_result = cpu_test(image)
+  cpu_test_result_numpy = cpu_test_numpy(image)
 
   # Run GPU Image Processing
   # gpu_result, gpu_execution_time = gpu_image_processing_2(image)
-  gpu_test_result = cpu_test(image)
+  gpu_test_result_cupy = gpu_test_cupy(image)
+  # gpu_test_result_cuda = gpu_test_cuda(image)
 
   # print(cpu_result)
   # print(gpu_result)
@@ -128,12 +162,17 @@ for image_path in image_paths:
   # cv2.waitKey(0)
 
   print("CPU Execution Time:              ", cpu_test_result, "seconds")
-  print("GPU Execution Time (CuPy):       ", gpu_test_result, "seconds")
+  print("CPU Execution Time (numPy):      ", cpu_test_result_numpy, "seconds")
+  print("GPU Execution Time (CuPy):       ", gpu_test_result_cupy, "seconds")
+  # print("GPU Execution Time (CV2_CUDA):   ", gpu_test_result_cuda, "seconds")
 
   print("\n")
 
   print("CPU Execution Time Average:              ", sum(cpu_test_result) / test_count, "seconds")
-  print("GPU Execution Time Average (CuPy):       ", sum(gpu_test_result) / test_count, "seconds")
+  print("CPU Execution Time Average (NumPy):      ", sum(cpu_test_result_numpy) / test_count, "seconds")
+  print("GPU Execution Time Average (CuPy):       ", sum(gpu_test_result_cupy) / test_count, "seconds")
+  # print("GPU Execution Time Average (CUDA):       ", sum(gpu_test_result_cuda) / test_count, "seconds")
 
-  print("#################")
+  print("#################\n\n\n")
+
 

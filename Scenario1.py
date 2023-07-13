@@ -137,3 +137,4 @@ print("CPU Execution Time Average:              ", sum(cpu_test_result) / test_c
 print("GPU Execution Time Average (CuPy):       ", sum(gpu_test_result_cupy) / test_count, "seconds")
 print("GPU Execution Time Average (TensorFlow): ", sum(gpu_test_result_tensorflow) / test_count, "seconds")
 print("GPU Execution Time Average (PyTorch):    ", sum(gpu_test_result_pytorch) / test_count, "seconds")
+
