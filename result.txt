@@ -1,0 +1,109 @@
+0  Run(s)  CPU Execution Time: 0.01910877227783203 seconds
+1  Run(s)  CPU Execution Time: 0.0004961490631103516 seconds
+2  Run(s)  CPU Execution Time: 0.0029058456420898438 seconds
+3  Run(s)  CPU Execution Time: 0.0025064945220947266 seconds
+4  Run(s)  CPU Execution Time: 0.0010156631469726562 seconds
+Matrix Size:  100  || Average CPU Execution Time: 0.005206584930419922 seconds
+
+
+0  Run(s)  CPU Execution Time: 0.0007617473602294922 seconds
+1  Run(s)  CPU Execution Time: 0.0002129077911376953 seconds
+2  Run(s)  CPU Execution Time: 0.0037419795989990234 seconds
+3  Run(s)  CPU Execution Time: 0.0007715225219726562 seconds
+4  Run(s)  CPU Execution Time: 0.0009770393371582031 seconds
+Matrix Size:  200  || Average CPU Execution Time: 0.006499624252319336 seconds
+
+
+0  Run(s)  CPU Execution Time: 0.003949165344238281 seconds
+1  Run(s)  CPU Execution Time: 0.0032176971435546875 seconds
+2  Run(s)  CPU Execution Time: 0.0023725032806396484 seconds
+3  Run(s)  CPU Execution Time: 0.002704143524169922 seconds
+4  Run(s)  CPU Execution Time: 0.002644777297973633 seconds
+Matrix Size:  400  || Average CPU Execution Time: 0.00947728157043457 seconds
+
+0  Run(s)  CPU Execution Time: 0.005238771438598633 seconds
+1  Run(s)  CPU Execution Time: 0.0037186145782470703 seconds
+2  Run(s)  CPU Execution Time: 0.006223440170288086 seconds
+3  Run(s)  CPU Execution Time: 0.006298542022705078 seconds
+4  Run(s)  CPU Execution Time: 0.003537893295288086 seconds
+Matrix Size:  700  || Average CPU Execution Time: 0.01448073387145996 seconds
+
+0  Run(s)  CPU Execution Time: 7.0061023235321045 seconds
+1  Run(s)  CPU Execution Time: 7.118245840072632 seconds
+2  Run(s)  CPU Execution Time: 7.165796756744385 seconds
+3  Run(s)  CPU Execution Time: 7.0216310024261475 seconds
+4  Run(s)  CPU Execution Time: 7.010535478591919 seconds
+Matrix Size:  10000  || Average CPU Execution Time: 7.0789430141448975 seconds
+
+
+
+
+
+
+0  Run(s)  GPU Execution Time: 1.932903528213501 seconds
+1  Run(s)  GPU Execution Time: 0.0005371570587158203 seconds
+2  Run(s)  GPU Execution Time: 0.0002911090850830078 seconds
+3  Run(s)  GPU Execution Time: 0.0002758502960205078 seconds
+4  Run(s)  GPU Execution Time: 0.00034546852111816406 seconds
+Matrix Size:  100  || Average GPU Execution Time: 0.3868706226348877 seconds
+
+
+0  Run(s)  GPU Execution Time: 0.0007505416870117188 seconds
+1  Run(s)  GPU Execution Time: 0.0005717277526855469 seconds
+2  Run(s)  GPU Execution Time: 0.0005803108215332031 seconds
+3  Run(s)  GPU Execution Time: 0.0005605220794677734 seconds
+4  Run(s)  GPU Execution Time: 0.0008676052093505859 seconds
+Matrix Size:  200  || Average GPU Execution Time: 0.38753676414489746 seconds
+
+
+0  Run(s)  GPU Execution Time: 0.0062716007232666016 seconds
+1  Run(s)  GPU Execution Time: 0.0029168128967285156 seconds
+2  Run(s)  GPU Execution Time: 0.002260923385620117 seconds
+3  Run(s)  GPU Execution Time: 0.0018575191497802734 seconds
+4  Run(s)  GPU Execution Time: 0.0024220943450927734 seconds
+Matrix Size:  400  || Average GPU Execution Time: 0.3906825542449951 seconds
+
+
+0  Run(s)  GPU Execution Time: 0.011570930480957031 seconds
+1  Run(s)  GPU Execution Time: 0.010226726531982422 seconds
+2  Run(s)  GPU Execution Time: 0.008944272994995117 seconds
+3  Run(s)  GPU Execution Time: 0.00831294059753418 seconds
+4  Run(s)  GPU Execution Time: 0.008614301681518555 seconds
+Matrix Size:  700  || Average GPU Execution Time: 0.40021638870239257 seconds
+
+
+0  Run(s)  GPU Execution Time: 10.754719495773315 seconds
+1  Run(s)  GPU Execution Time: 9.96320128440857 seconds
+2  Run(s)  GPU Execution Time: 9.802151679992676 seconds
+3  Run(s)  GPU Execution Time: 12.913322448730469 seconds
+4  Run(s)  GPU Execution Time: 9.834522485733032 seconds
+Matrix Size:  10000  || Average GPU Execution Time: 11.053799867630005 seconds
+
+
+
+
+
+
+
+The CPU usage is:  0.1
+RAM memory % used: 14.8
+RAM Used (GB): 0.953704448
+Matrix Size:  100  || Average CPU Execution Time: 0.005206584930419922 seconds
+Matrix Size:  200  || Average CPU Execution Time: 0.006499624252319336 seconds
+Matrix Size:  400  || Average CPU Execution Time: 0.00947728157043457 seconds
+Matrix Size:  700  || Average CPU Execution Time: 0.01448073387145996 seconds
+Matrix Size:  10000  || Average CPU Execution Time: 7.0789430141448975 seconds
+The CPU usage is:  8.8
+RAM memory % used: 45.4
+RAM Used (GB): 3.441463296
+
+
+
+
+GPU RAM Free: 6959MB | Used: 1073MB | Util  13% | Total 8192MB
+Matrix Size:  100  || Average GPU Execution Time: 0.3868706226348877 seconds
+Matrix Size:  200  || Average GPU Execution Time: 0.38753676414489746 seconds
+Matrix Size:  400  || Average GPU Execution Time: 0.3906825542449951 seconds
+Matrix Size:  700  || Average GPU Execution Time: 0.40021638870239257 seconds
+Matrix Size:  10000  || Average GPU Execution Time: 11.053799867630005 seconds
+GPU RAM Free: 4131MB | Used: 3901MB | Util  48% | Total 8192MB
