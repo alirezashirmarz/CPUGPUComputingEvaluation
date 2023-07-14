@@ -24,3 +24,6 @@ plt.legend()
 
 # Display the plot
 plt.show()
+""" This code plots a comparative analysis between GPU and CPU 
+    This is based on results of the execution of scenario1 and json file is needed in this code directory
+    Note that you should install matplotlib.pyplot package ."""
