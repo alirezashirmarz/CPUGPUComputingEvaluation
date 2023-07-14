@@ -1,52 +1,59 @@
-# ************************ Written by Alireza ************************************
+# ************************ Written by Alireza *********modified by Kiani*************************
 import numpy as np
 import time
+import cupy as cp
+import numba
+import json
 
 # Define the matrix sizes
-matrix_size = 1000
-matrix_a = np.random.rand(matrix_size, matrix_size)
-matrix_b = np.random.rand(matrix_size, matrix_size)
+matrix_sizes = [200, 1000, 2000, 3000, 4000, 5000]
 
-# CPU Matrix Multiplication
-def cpu_matrix_multiplication(matrix_a, matrix_b):
-    start_time = time.time()
+# Define a list to store the results
+results = []
 
-    # Perform matrix multiplication using CPU
-    cpu_result = np.dot(matrix_a, matrix_b)
+for matrix_size in matrix_sizes:
+    print(f"\nMatrix size: {matrix_size}")
+    matrix_a = np.random.rand(matrix_size, matrix_size)
+    matrix_b = np.random.rand(matrix_size, matrix_size)
 
-    end_time = time.time()
-    execution_time = end_time - start_time
-    return cpu_result, execution_time
+    # CPU Matrix Multiplication
+    cpu_total_time = 0
+    iterations = 5
+    for i in range(iterations):
+        start_time = time.time()
+        cpu_result = np.dot(matrix_a, matrix_b)
+        end_time = time.time()
+        cpu_total_time += end_time - start_time
+    cpu_avg_time = cpu_total_time / iterations
 
-# GPU Matrix Multiplication
-def gpu_matrix_multiplication(matrix_a, matrix_b):
-    start_time = time.time()
+    # GPU Matrix Multiplication
+    gpu_total_time = 0
+    iterations = 5
+    for i in range(iterations):
+        start_time = time.time()
+        gpu_matrix_a = cp.asarray(matrix_a)
+        gpu_matrix_b = cp.asarray(matrix_b)
 
-    # Perform matrix multiplication using GPU
-    gpu_matrix_a = cp.asarray(matrix_a)
-    gpu_matrix_b = cp.asarray(matrix_b)
-    gpu_result = cp.dot(gpu_matrix_a, gpu_matrix_b)
-    cpu_result = cp.asnumpy(gpu_result)
+        @numba.jit(forceobj=True, parallel=True)
+        def g_matrix_multiplication(a, b):
+            return a @ b
 
-    end_time = time.time()
-    execution_time = end_time - start_time
-    return cpu_result, execution_time
+        gpu_result = g_matrix_multiplication(gpu_matrix_a, gpu_matrix_b)
+        end_time = time.time()
+        gpu_total_time += end_time - start_time
+    gpu_avg_time = gpu_total_time / iterations
 
-# Run CPU Matrix Multiplication
-cpu_result, cpu_execution_time = cpu_matrix_multiplication(matrix_a, matrix_b)
+    # Compare the average execution times
+    print("Average CPU Execution Time:", cpu_avg_time, "seconds")
+    print("Average GPU Execution Time:", gpu_avg_time, "seconds")
 
-# Run GPU Matrix Multiplication
-gpu_result, gpu_execution_time = gpu_matrix_multiplication(matrix_a, matrix_b)
+    # Store the results in a dictionary
+    result = {"matrix_size": matrix_size, "cpu_time": cpu_avg_time, "gpu_time": gpu_avg_time}
+    results.append(result)
 
-# Compare the results (optional)
-print("CPU Result:")
-print(cpu_result)
-print("GPU Result:")
-print(gpu_result)
-
-# Print the execution times
-print("CPU Execution Time:", cpu_execution_time, "seconds")
-print("GPU Execution Time:", gpu_execution_time, "seconds")
+# Write the results to a JSON file
+with open("results.json", "w") as f:
+    json.dump(results, f)
 
 """ The Explanation of the Code:
 In this code, we start by defining the size of the square matrices to be multiplied (matrix_size). 
@@ -67,6 +74,9 @@ Please note that for the GPU matrix multiplication to work,
 you need to have the cupy library installed, which provides 
 a NumPy-compatible interface for GPU computations. 
 Also, make sure you have a compatible GPU and CUDA drivers installed.
+for the gpu accelerated library we use Numba which can optimize gpu performance
+you can change elements of matrix size array to compare average times of cpu and gpu also
+you can change number of iteration for each function
 
-Feel free to adjust the matrix size and modify the code according to your specific requirements.
+The code also saves the average cpu and gpu time and matrix sizes to a json file
 """
